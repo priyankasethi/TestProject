@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+			$(document).ready(function() {
+			$("#save_data").click(function() {
+			alert("succeess");
+			$.ajax({
+			url: "Save_Details.jsp",
+			type: "post",
+			data: {
+			 ID:$('#ID').val(),
+			Name:$('#Name').val(),
+			payrollID:$('#payrollID').val(),
+			CostCenter:$('#CostCenter').val(),
+			Department:$('#Department').val(),
+			AddressLine1:$('#AddressLine1').val(),
+			AddressLine2:$('#AddressLine2').val(),
+			Suburb:$('#Suburb').val(),
+			State:$('#State').val(),
+			PostCode:$('#PostCode').val(),
+			HostOPIN:$('#HostOPIN').val(),
+			RegisteredDevice:$('#RegisteredDevice').val(),
+			Notes:$('#Notes').val(),
+			Notes:$('#InputFile').val(),
+			
+			success : function(data){
+			
+			}
+			}
+			});
+			});
+			});
+</script>
+  <script>
+		   function previewFile(){
+			   var preview = document.querySelector('img'); //selects the query named img
+			   var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+			   var reader  = new FileReader();
+
+			   reader.onloadend = function () {
+				   preview.src = reader.result;
+			   }
+
+			   if (file) {
+				   reader.readAsDataURL(file); //reads the data as a URL
+			   } else {
+				   preview.src = "";
+			   }
+		  }
+
+		  previewFile();  //calls the function named previewFile()
+  </script>
+  <style>
+    
+    .row.content {height: 1500px}
+    
+    
+    .sidenav {
+      
+      height: 100%;
+    }
+    
+   
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+<form method="post">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+	<br><br>
+      <h4>Participants</h4>
+    
+     <div class="dropdown">
+	  <select id="Employee" class="form-control">
+        <option selected>1</option>
+        <option>2</option>
+      </select>
+
+</div>
+    </div>
+ <div class="col-sm-9 ">
+	
+    <div class="col-sm-4">
+      <h4><small>Detail</small></h4>
+      <hr>
+     
+
+      
+ 
+        <div class="form-group">
+         <img class="img-responsive" src="profilepic.png">
+        </div>
+		<div class="form-group">
+   
+    <input type="file" class="form-control-file" id="InputFile" onchange="previewFile()">
+ 
+  </div>
+  
+    </div>
+	
+	   <div class="col-sm-8 ">
+	   
+<hr>
+
+  <div class="form-group row">
+    <label for="id" class="col-sm-2 col-form-label">WDS NUMBER</label>
+    <div class="col-sm-10">
+      <input type="Text" class="form-control" id="ID" placeholder="ID">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="payrollID" class="col-sm-2 col-form-label">Payroll ID</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="payrollID" placeholder="payroll">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="Text" class="form-control" id="Name" placeholder="Name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="CostCenter" class="col-sm-2 col-form-label">Cost Center</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="CostCenter" placeholder="Cost Center">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputDepartment" class="col-sm-2 col-form-label">Department</label>
+    <div class="col-sm-10">
+      <select id="Department" class="form-control">
+        <option selected>Choose A Department</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="AddressLine1" class="col-sm-2 col-form-label">Address Line1</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="AddressLine1" placeholder="Address Line1">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputAddressLine2" class="col-sm-2 col-form-label">Address Line2</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="AdressLine2" placeholder="Address Line2">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="Suburb" class="col-sm-2 col-form-label">Suburb</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Suburb" placeholder="Suburb">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="State" class="col-sm-2 col-form-label">State</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="State" placeholder="State">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="PostCode" class="col-sm-2 col-form-label">PostCode</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="PostCode" placeholder="PostCode">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="PhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="PhoneNumber" placeholder="Phone Number">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="HostOPIN" class="col-sm-2 col-form-label">HostOPIN</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="HostOPIN" placeholder="HostOPIN">
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="DOB" class="col-sm-2 col-form-label">Date of birth</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="DOB" placeholder="Date of birth">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="RegisteredDevice" class="col-sm-2 col-form-label">Registered Device</label>
+    <div class="col-sm-10">
+      <select id="RegisteredDevice" class="form-control">
+        <option selected>No Device</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Notes</legend>
+      <div class="col-sm-10">
+        <div class="form-group">
+  
+  <textarea class="form-control" rows="5" id="Notes"></textarea>
+</div>
+    </div>
+    </div>
+   
+  </fieldset>
+           
+			
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-success" id="save_data">Save</button>
+    </div>
+  </div>
+
+    </div>
+	</div>
+  </div>
+  </form>
+</div>
+
+<footer class="container-fluid">
+  <p></p>
+</footer>
+
+</body>
+</html>
